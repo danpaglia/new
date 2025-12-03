@@ -1,103 +1,174 @@
-/* General Styles */
+/* Basic Reset & Body Styling */
 body {
-    font-family: sans-serif;
     margin: 0;
+    font-family: 'Poppins', sans-serif; /* Using Poppins as an example, or use a system font */
+    background-color: #000; /* Black background */
+    color: #fff; /* Default text color */
     line-height: 1.6;
-    background-color: #f4f4f4; /* Light gray background */
-    color: #333; /* Dark gray text color */
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    color: #222; /* Slightly darker headings */
-}
-
-/* Header Styles */
-header {
-    background-color: #fff; /* White background for the header */
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
-}
-
-/* About Section */
-#about {
-    padding: 40px 0;
-    background-color: #fff; /* White background */
-}
-
-.about-content {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure footer stays at bottom */
 }
 
-.about-content img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Makes the image a circle */
-    margin-right: 20px;
-    object-fit: cover; /* Ensures the image fills the space */
+/* If you uncommented the Google Font link in HTML, you can use it here */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); */
+
+
+/* Main Container Layout */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 1200px; /* Max width of the content */
+    margin: 0 auto; /* Center the container */
+    padding: 40px 20px; /* Padding around the content */
+    flex-grow: 1; /* Allow container to grow and push footer down */
+    align-items: center; /* Vertically align items in the center */
 }
 
-/* Portfolio Section */
-#portfolio {
-    padding: 40px 0;
+/* Left Content Section */
+.content-left {
+    flex: 1; /* Takes up available space */
+    min-width: 300px; /* Minimum width before wrapping */
+    padding-right: 40px; /* Space between text and image */
 }
 
-.portfolio-grid {
+.content-left h1 {
+    font-size: 3.5em; /* Large font for the name */
+    color: #D4AF37; /* Gold/Yellow color */
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.content-left .title {
+    font-size: 1.2em;
+    color: #AAA; /* Lighter gray for the title */
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.content-left .about-text {
+    font-size: 1em;
+    color: #CCC; /* Light gray for the about text */
+    margin-top: 30px;
+    max-width: 500px; /* Limit width for readability */
+}
+
+/* Buttons Grid */
+.buttons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px; /* Space between buttons */
+    margin-top: 40px;
+    max-width: 500px; /* Align with about text width */
 }
 
-.portfolio-item img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.portfolio-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Contact Section */
-#contact {
-    padding: 40px 0;
-    background-color: #fff;
-}
-
-#contact input[type="text"],
-#contact input[type="email"],
-#contact textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* Important for width to include padding */
-}
-
-#contact button {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: white;
+.button {
+    display: block; /* Make buttons take full width of their grid cell */
+    padding: 15px 20px;
+    border: 1px solid #D4AF37; /* Gold/Yellow border */
+    color: #D4AF37; /* Gold/Yellow text */
+    text-decoration: none;
     text-align: center;
-    padding: 10px 0;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #D4AF37; /* Gold/Yellow background on hover */
+    color: #000; /* Black text on hover */
+}
+
+/* Hire Now Button */
+.hire-button {
+    display: block;
+    width: 100%; /* Take full width of its container */
+    max-width: 500px; /* Align with other buttons */
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #D4AF37; /* Gold/Yellow background */
+    color: #000; /* Black text */
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none; /* No border for this button */
+}
+
+.hire-button:hover {
+    background-color: #e0c26e; /* Slightly lighter gold on hover */
+    color: #000;
+}
+
+/* Right Image Section */
+.image-right {
+    flex: 1; /* Takes up available space */
+    min-width: 300px; /* Minimum width before wrapping */
+    text-align: right; /* Align image to the right */
+}
+
+.image-right img {
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto;
+    display: block; /* Remove extra space below image */
+    margin-left: auto; /* Center image if it's smaller than its container */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666; /* Darker gray for copyright */
+    font-size: 0.8em;
+    margin-top: 40px; /* Space above footer */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 20px;
+    }
+
+    .content-left {
+        padding-right: 0;
+        text-align: center; /* Center text content */
+    }
+
+    .content-left h1 {
+        font-size: 2.5em;
+    }
+
+    .content-left .title {
+        font-size: 1em;
+    }
+
+    .content-left .about-text {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left; /* Keep about text left-aligned for readability */
+    }
+
+    .buttons-grid {
+        grid-template-columns: 1fr; /* Single column for buttons */
+        max-width: 300px; /* Limit button width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hire-button {
+        max-width: 300px; /* Limit hire button width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-right {
+        text-align: center; /* Center image on smaller screens */
+        margin-top: 40px; /* Space between text and image */
+    }
 }
